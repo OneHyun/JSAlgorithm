@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 자연수 N이 입력되면 1부터 N까지의 합 구하기-->
+    <script>
+      function solution(n) {
+        var answer = 0;
+        /* 
+         for(var i=1; i<=n; i++){
+          answer += i;
+        }
+        */
+        var arr = Array(n)
+          .fill(1)
+          .map((v, i) => v + i);
+        return arr.reduce((acc, cur) => acc + cur);
+      }
+      console.log(solution(6));
+    </script>
+  </body>
+</html>

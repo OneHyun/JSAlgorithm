@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 서울시는 6월 1일 부터 교통 혼잡을 막기 위해 자동차 10부제를 시행한다 
+         자동차 10부제는 자동차 번호의 일의 자리 숫자와 날짜의 일의 자리 숫자가 일치하면
+         해당 자동차의 운행을 금지하는 것이다
+        ex) 자동차 번호의 일의 자리 숫자가 7이면 7일, 17일, 27일에 운행 금지
+      
+         첫 줄에는 날짜의 일의 자리 숫자, 두 번째 줄에는 7대의 자동차 번호의 끝 두 자리 숫자
+    -->
+    <script>
+      function solution(day, arr) {
+        var count = 0;
+        arr.forEach((element) => {
+          if (element % 10 == day) count++;
+        });
+        return count;
+      }
+
+      var carNumsOne = [12, 20, 54, 30, 87, 91, 30];
+      var carNumsTwo = [25, 23, 11, 47, 53, 17, 32];
+      console.log(solution(3, carNumsTwo));
+    </script>
+  </body>
+</html>

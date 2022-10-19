@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 7개의 수가 주어지면 그 숫자 중 홀수인 자연수의 합과 홀수 중 최솟값 출력-->
+    <script>
+      function solution(arr) {
+        var min = Number.MAX_SAFE_INTEGER,
+          sum = 0;
+        arr.map((element) => {
+          if (element % 2) {
+            sum += element;
+            if (min > element) min = element;
+          }
+        });
+
+        return [sum, min];
+      }
+
+      var arr = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
