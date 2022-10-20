@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- N개의 문자열이 입력되면 중복된 문자열은 제거하고 출력 -->
+
+    <script>
+      function solution(str) {
+        var answer = [];
+        for (var i = 0; i < str.length; i++) {
+          if (!answer.includes(str[i])) answer.push(str[i]);
+        }
+        return answer;
+        /*
+        answer=str.filter(function(v, i){
+           return s.indexOf(v)===i;
+        });
+
+        return answer;
+        */
+      }
+
+      // 테스트 케이스
+      let testCaseOne = ["good", "time", "good", "time", "student"];
+      console.log(solution(testCaseOne));
+    </script>
+  </body>
+</html>

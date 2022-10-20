@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력 -->
+
+    <script>
+      function solution(str) {
+        var answer = "",
+          length = 0;
+        for (var i = 0; i < str.length; i++) {
+          if (length < str[i].length) {
+            answer = str[i];
+            length = str[i].length;
+          }
+        }
+        return answer;
+      }
+
+      // 테스트 케이스
+      let testCaseOne = ["teacher", "time", "student", "beautiful", "good"];
+      console.log(solution(testCaseOne));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 
+        대문자와 소문자가 같이 존재하는 문자열을 입력받아 
+        대문자는 소문자로 소문자는 대문자로 변환하여 출력
+    -->
+
+    <script>
+      function solution(str) {
+        var answer = "";
+        for (var element of str) {
+          let num = element.charCodeAt();
+          console.log(num);
+          if (num >= 97 && num <= 122) {
+            answer += String.fromCharCode(num - 32);
+          } else {
+            answer += String.fromCharCode(num + 32);
+          }
+        }
+        return answer;
+      }
+
+      // 테스트 케이스
+      var testCaseOne = "StuDY";
+      console.log(solution(testCaseOne));
+    </script>
+  </body>
+</html>
