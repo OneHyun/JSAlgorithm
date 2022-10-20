@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 
+         몇 개 존재하는지 알아내어 출력 -->
+    <script>
+      function solution(arr) {
+        var answer = arr[0].split(""),
+          target = arr[1];
+        answer = answer.filter((element) => {
+          return element == target;
+        });
+
+        return answer.length;
+
+        /*
+        var answer=s.split(arr[1]).length;
+          return answer-1;
+        */
+      }
+
+      // 테스트 케이스
+      var testCaseOne = ["COMPUTERPROGRAMMING", "R"];
+      console.log(solution(testCaseOne));
+    </script>
+  </body>
+</html>

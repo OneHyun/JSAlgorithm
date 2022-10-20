@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!-- 대문자로 이루어진 영어단어가 입력되면 단어에 포함된 ‘A'를 모두 ’#‘으로 바꾸어 출력 -->
+    <script>
+      function solution(str) {
+        var answer = str.split("").map((element) => {
+          if (element == "A") return "#";
+          return element;
+        });
+        return answer.join("");
+        /*
+        let answer = str;
+        answer = answer.replace(/A/g, "#");
+        return answer;
+        */
+      }
+
+      // 테스트 케이스
+      var testCaseOne = "BANANA";
+      console.log(solution(testCaseOne));
+    </script>
+  </body>
+</html>
