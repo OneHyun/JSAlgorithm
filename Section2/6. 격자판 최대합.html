@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!--
+      N*N의 격자판이 주어지면 
+      각 행의 합, 각 열의 합, 두 대각선의 합 중 가 장 큰 합을 출력
+    -->
+    <script>
+      function solution(arr) {
+        // row, column, diagonal 3 분류로 진행 예정
+        var answer = Array(3).fill(0);
+        var n = arr.length;
+        // row & column
+        for (var i = 0; i < n; i++) {
+          var rowSum = 0,
+            columnSum = 0;
+          for (var j = 0; j < n; j++) {
+            rowSum += arr[i][j];
+            columnSum += arr[j][i];
+          }
+          answer[0] = answer[0] > sum ? answer[0] : sum;
+          answer[1] = answer[1] > columnSum ? answer[1] : columnSum;
+        }
+
+        // diagonal
+        var lefSum = 0,
+          rigSum = 0;
+        for (var i = 0; i < n; i++) {
+          lefSum += arr[i][i];
+          rigSum += arr[i][n - i - 1];
+        }
+        answer[2] = lefSum > rigSum ? lefSum : rigSum;
+        console.log(answer);
+        return Math.max(...answer);
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
