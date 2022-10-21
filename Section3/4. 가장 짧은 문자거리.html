@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!--
+      한 개의 문자열 s와 문자 t가 주어지면 문자열 s의 각 문자가 문자 t와 떨어진 최소거리를 출력
+      문자열의 길이는 100을 넘지 않음
+     -->
+    <script>
+      function solution(str, target) {
+        var answer = [];
+        var distance = 100;
+
+        // 1번째 방법 (전/후 두번 반복하여 거리 확인)
+        for (var i = 0; i < str.length; i++) {
+          if (str[i] == target) distance = 0;
+          else distance++;
+
+          answer.push(distance);
+        }
+
+        //처음과 끝은 e의 위치를 모르기에 for 한 번으로 체크를 하기 위함
+        distance = 100;
+        for (var i = str.length - 1; i >= 0; i--) {
+          if (str[i] == target) distance = 0;
+          else distance++;
+
+          answer[i] = answer[i] >= distance ? distance : answer[i];
+        }
+        return answer;
+        /*
+        // 2번째 방법 (target 문자 t의 위치를 담아서, 각 문자별로 체크하기)
+        var answer = [];
+        var tarpos = [];
+        str.split("").map((element, idx) => {
+          if (element == target) tarpos.push(idx);
+        });
+
+        for (var i = 0; i < str.length; i++) {
+          var distances = [];
+          for (var j = 0; j < tarpos.length; j++) {
+            distances.push(Math.abs(i - tarpos[j]));
+          }
+          answer.push(Math.min(...distances));
+        }
+
+        return answer;
+        */
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>

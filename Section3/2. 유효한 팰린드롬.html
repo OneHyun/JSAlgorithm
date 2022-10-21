@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <!--
+      앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라 합니다.
+      문자열이 팰린드롬이면 "YES", 팰린드롬이 아니면 “NO"를 출력
+
+      회문을 검사할 때 알파벳만 가지고 회문을 검사하며, 대소문자를 구분하지 않습니다. 알파벳 이외의 문자들의 무시
+    -->
+    <script>
+      function solution(str) {
+        var original = "";
+        str = str.toLowerCase();
+
+        for (var i = 0; i < str.length; i++) {
+          var code = str[i].charCodeAt();
+          if (code >= 97 && code <= 122) original += str[i];
+        }
+        var reversed = original.split("").reverse().join("");
+        return original == reversed ? "YES" : "NO";
+
+        /*
+        str = str.replace(/[^a-zA-Z]/g, "").toLowerCase();
+        var reversed = str.split("").reverse().join("");
+
+        return str == reversed ? "YES" : "NO";
+        */
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
